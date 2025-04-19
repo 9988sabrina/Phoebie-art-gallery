@@ -1,4 +1,4 @@
-// ========== Modal Logic ==========
+// Modal Logic
 const modal = document.getElementById("modal");
 const modalImg = document.getElementById("modalImg");
 const closeBtn = document.getElementById("closeBtn");
@@ -20,16 +20,17 @@ window.onclick = (e) => {
   }
 };
 
-// ========== Music Play/Pause ==========
+// Music Play/Pause Logic
 const musicBtn = document.getElementById("musicBtn");
 const bgMusic = document.getElementById("bgMusic");
 
 musicBtn.addEventListener("click", () => {
   if (bgMusic.paused) {
-    bgMusic.play();
+    bgMusic.play().catch(e => console.log("Play failed:", e));
     musicBtn.textContent = "Pause Music";
   } else {
     bgMusic.pause();
     musicBtn.textContent = "Play Music";
   }
 });
+
