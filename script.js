@@ -25,15 +25,20 @@ window.addEventListener("DOMContentLoaded", () => {
   const musicBtn = document.getElementById("musicBtn");
   const bgMusic = document.getElementById("bgMusic");
 
+  // Required for Safari autoplay policy
+  bgMusic.load();
+
   musicBtn.addEventListener("click", () => {
     if (bgMusic.paused) {
-      bgMusic.play();
-      musicBtn.textContent = "Pause Music";
+      bgMusic.play().then(() => {
+        musicBtn.textContent = "Pause Music";
+      }).catch(err => {
+        console.error("Playback failed:", err);
+      });
     } else {
       bgMusic.pause();
       musicBtn.textContent = "Play Music";
     }
   });
 });
-
 
