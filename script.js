@@ -21,16 +21,19 @@ window.onclick = (e) => {
 };
 
 // Music Play/Pause Logic
-const musicBtn = document.getElementById("musicBtn");
-const bgMusic = document.getElementById("bgMusic");
+window.addEventListener("DOMContentLoaded", () => {
+  const musicBtn = document.getElementById("musicBtn");
+  const bgMusic = document.getElementById("bgMusic");
 
-musicBtn.addEventListener("click", () => {
-  if (bgMusic.paused) {
-    bgMusic.play().catch(e => console.log("Play failed:", e));
-    musicBtn.textContent = "Pause Music";
-  } else {
-    bgMusic.pause();
-    musicBtn.textContent = "Play Music";
-  }
+  musicBtn.addEventListener("click", () => {
+    if (bgMusic.paused) {
+      bgMusic.play();
+      musicBtn.textContent = "Pause Music";
+    } else {
+      bgMusic.pause();
+      musicBtn.textContent = "Play Music";
+    }
+  });
 });
+
 
